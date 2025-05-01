@@ -330,7 +330,7 @@
 ;; #datomic/DB {:schema <map>, :datoms <vector of [e a v tx]>}
 
 (defn ^Datom datom-from-reader [vec]
-  (apply datom vec))
+  `(datom ~@vec))
 
 #?(:clj
    (defmethod print-method Datom [^Datom d, ^java.io.Writer w]
